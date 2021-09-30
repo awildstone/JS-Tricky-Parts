@@ -2,7 +2,7 @@
 
 [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 
-####1. What is a potential pitfall with using `typeof bar === "object"` to determine if bar is an object? How can this pitfall be avoided?
+#### 1. What is a potential pitfall with using `typeof bar === "object"` to determine if bar is an object? How can this pitfall be avoided?
 
 `typeof bar === "object"` is reliable for checking if `bar` is an object, but `null` is also an object in JavaScript. 
 
@@ -10,7 +10,7 @@ If `let bar = null;` then `typeof bar === "object"` will be true when we actuall
 
 We can avoid this issue by also checking if bar is null: `typeof bar === "object" && bar !== null`
 
-####2. What will the code below output to the console and why?
+#### 2. What will the code below output to the console and why?
 
 	function(){
  	 var a = b = 3;
@@ -28,7 +28,7 @@ This happens because `var a = b = 3;` is shorthand for `b = 3;` and `var a = b;`
 
 If you use `use strict` in your code, trying to run this code will throw `ReferenceError: b is not defined`.
 
-####3. What will the code below output to the console and why?
+#### 3. What will the code below output to the console and why?
 
 	var myObject = {
 	foo: "bar",
@@ -53,17 +53,17 @@ In the outer function, both `this` and `self` refer to `myObject` so they can ac
 
 In the inner function, `this.foo` refers to the function it resides in rather than `myObject` so it cannot access the value of `foo`. `self.foo` can access foo through the local variable `self` that is still in scope.
 
-####4. What is the significance of, and reason for, wrapping the entire content of a JavaScript source file in a function block?
+#### 4. What is the significance of, and reason for, wrapping the entire content of a JavaScript source file in a function block?
 
 Wrapping the entire content of a JavaScript file in a function block creates a closure around the file and creates a private namespace. This is a helpful technique to prevent any naming conflicts between JavaScript modules or libraries.
 
-####5. What is the significance, and what are the benefits, of including 'use strict' at the beginning of a JavaScript source file?
+#### 5. What is the significance, and what are the benefits, of including 'use strict' at the beginning of a JavaScript source file?
 
 `use strict` places stricter requirements for parsing and error handling during runtime. With the use of `use strict` code errors that would normally not cause an error to throw will throw and error under the stricter requirements.
 
 Using `use strict` is considered a good practice and can help make debugging code easier by throwing errors that would normally fail silently. An example is assigning a value to an undeclared variable - this would create a globally scoped variable and normally would not throw an error.
 
-####6. Consider the two functions below. Will they both return the same thing? Why or why not?
+#### 6. Consider the two functions below. Will they both return the same thing? Why or why not?
 
 	function foo1()
 	{
@@ -82,7 +82,7 @@ Using `use strict` is considered a good practice and can help make debugging cod
 
 `foo1` will return `{ bar: "hello" }` but `foo2` will return `undefined` because JavaScript will insert a comma after the return statement on runtime and not return the object defined below the return statement (which is now just another block of code). This behavior reinforces why semicolons should be placed at the end of lines and not omitted, and why the first curly brace of a block should start at the end of the line above.
 
-####7. What will the code below output? Explain your answer.
+#### 7. What will the code below output? Explain your answer.
 
 	console.log(0.1 + 0.2);
 	console.log(0.1 + 0.2 == 0.3);
@@ -93,7 +93,7 @@ In JavaScript it is better practice/more common to compare the difference of flo
 
 `Math.abs( (0.1 + 0.2) - 0.3 ) < Number.EPSILON;` = true
 
-####8. In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?
+#### 8. In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?
 
 	(function() {
     	console.log(1); 
@@ -106,7 +106,7 @@ In JavaScript it is better practice/more common to compare the difference of flo
 
 The reason 3 ends up logging after 4 even though 4 comes later is because the use of the callback in the line 3 timeout function puts the call onto an event queue to wait until it is time to call. It is taken off the queue right away because the timer is only 0 seconds but is still delayed long enough for line 4 to run first.
 
-####9. Write a simple function (less than 160 characters) that returns a boolean indicating whether or not a string is a palindrome.
+#### 9. Write a simple function (less than 160 characters) that returns a boolean indicating whether or not a string is a palindrome.
 
 	function isPalindrome(str) {
 		let reverse = '';
@@ -116,7 +116,7 @@ The reason 3 ends up logging after 4 even though 4 comes later is because the us
 		return reverse === str.split('').reverse().join('');
 	}
 
-####10. Write a sum method which will work properly when invoked using either syntax below.
+#### 10. Write a sum method which will work properly when invoked using either syntax below.
 	
 	function sum(x, y) {
 		if (y !== undefined) {
@@ -128,7 +128,7 @@ The reason 3 ends up logging after 4 even though 4 comes later is because the us
 	console.log(sum(2,3));   // Outputs 5
 	console.log(sum(2)(3));  // Outputs 5
 
-####11. Consider the following code snippet:
+#### 11. Consider the following code snippet:
 	for (var i = 0; i < 5; i++) {
   		var btn = document.createElement('button');
   		btn.appendChild(document.createTextNode('Button ' + i));
@@ -149,10 +149,10 @@ Replace `var` with `let`:
  	   document.body.appendChild(btn);
 	}
 
-####12. Assuming d is an “empty” object in scope, say:
+#### 12. Assuming d is an “empty” object in scope, say:
 
 	var d = {};
-####…what is accomplished using the following code?
+#### …what is accomplished using the following code?
 
 	[ 'zebra', 'horse' ].forEach(function(k) {
 		d[k] = undefined;
@@ -160,7 +160,7 @@ Replace `var` with `let`:
 	
 This sets `'zebra'` and `'horse'` as keys on d, while setting the values as `undefined`.
 
-####13. What will the code below output to the console and why?
+#### 13. What will the code below output to the console and why?
 	var arr1 = "john".split(''); // ['j', 'o', 'h', 'n']
 	var arr2 = arr1.reverse(); // ['n', 'h', 'o', 'j']
 	var arr3 = "jones".split(''); // ['j', 'o', 'n', 'e', 's']
@@ -177,7 +177,7 @@ Array.push will push `['j', 'o', 'n', 'e', 's']` into a single space on arr2/arr
 
 Array.slice(-1) gets the last element in the array (backwards from the end with negative indicies) - `['j', 'o', 'n', 'e', 's']`.
 
-####14. What will the code below output to the console and why?
+#### 14. What will the code below output to the console and why?
 
 	console.log(1 +  "2" + "2");
 	// 122 
@@ -203,7 +203,7 @@ JavaScript can't do math with strings so NaN is returned then contatenated with 
 	// NaN
 JavaScript can't do math with strings so NaN" is returned, you can't add 2 to NaN its still NaN.
 
-####15. The following recursive code will cause a stack overflow if the array list is too large. How can you fix this and still retain the recursive pattern?
+#### 15. The following recursive code will cause a stack overflow if the array list is too large. How can you fix this and still retain the recursive pattern?
 
 	var list = readHugeList();
 
@@ -219,7 +219,7 @@ JavaScript can't do math with strings so NaN" is returned, you can't add 2 to Na
 You can avoid a stack overflow by calling nextListItem(); as a callback in setTimeout: `setTimeout( nextListItem, 0);`
 This places each call in the event loop, rather than the call stack so we can avoid overloading the call stack with recursive requests.
 
-####16. What is a “closure” in JavaScript? Provide an example.
+#### 16. What is a “closure” in JavaScript? Provide an example.
 
 Closure is the ability of an inner function to access/remember variables scoped in the outer (enclosing) function. The inner function has the ability to remember and modify the variable long after the outer function finishes executing both functions. The inner function has access to variabled in its own scope, variables in the outer function, and global variables.
 
@@ -246,7 +246,7 @@ Closure is the ability of an inner function to access/remember variables scoped 
 		// 'outer variable'
 		// global variable'
 
-####17. What would the following lines of code output to the console?
+#### 17. What would the following lines of code output to the console?
 
 	console.log("0 || 1 = "+(0 || 1));
 0 || 1 = 1 returns 1 because 0 is falsey
@@ -260,14 +260,14 @@ Closure is the ability of an inner function to access/remember variables scoped 
 	console.log("1 && 2 = "+(1 && 2));
 1 && 2 = 2 The first and second values are true, but the second value is returned because it is the most recently checked expression.
 
-####18. What will be the output when the following code is executed? Explain.
+#### 18. What will be the output when the following code is executed? Explain.
 	console.log(false == '0')
 This returns true because the values are compared after coercion. JavaScript coerces different types to check the values. Since 0 is a falsey value and we are comparing false, the result is true.
 
 	console.log(false === '0')
 This returns false because we are comparing value and reference type. This returns false because '0' is not a boolean type.
 
-####19. What is the output out of the following code? Explain your answer.
+#### 19. What is the output out of the following code? Explain your answer.
 	var a={},
     	b={key:'b'},
     	c={key:'c'};
@@ -279,7 +279,7 @@ This returns false because we are comparing value and reference type. This retur
 
 This logs 465. Because b and c are both objects, JavaScript will automatically stringify any non string keys into strings. The key for both gets set to `"[object Object]"` and since these are not unique keys, c overrides the value of b.
 
-####20. What will the following code output to the console:
+#### 20. What will the following code output to the console:
 
 	console.log((function f(n){return ((n > 1) ? n * f(n-1) : n)})(10));
 	
@@ -296,7 +296,7 @@ f(8): returns 40,320 (8 * 5040)
 f(9): returns 362,880 (9 * 40,320)
 f(10): returns 3,628,800 (10 * 362,880)
 
-####21. Consider the code snippet below. What will the console output be and why?
+#### 21. Consider the code snippet below. What will the console output be and why?
 
 	(function(x) {
     	return (function(y) {
@@ -306,7 +306,7 @@ f(10): returns 3,628,800 (10 * 362,880)
 
 We invoke the function passing in 1 as x. X is wihin the scope of the inner function, and because x is not declared in the inner function, it looks outward for the value of x in the outer function and so 1 is logged.
 
-####22. What will the following code output to the console and why:
+#### 22. What will the following code output to the console and why:
 	var hero = {
    		_name: 'John Doe',
     	getSecretIdentity: function (){
@@ -326,11 +326,11 @@ We can access and call the getSecretIdentity() function directly through the her
 
 We need to bind our reference stoleSecretIdentity with the hero object so when we invoke the function it knows where to find the value for _name. `var stoleSecretIdentity = hero.getSecretIdentity.bind(hero);`
 
-####23. Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.
+#### 23. Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.
 
-####The arguments to the function should be:
-####a DOM element
-####a callback function (that takes a DOM element as its argument)
+#### The arguments to the function should be:
+#### a DOM element
+#### a callback function (that takes a DOM element as its argument)
 
 	function visitAllElements(element, callback) {
 		callback(element);
@@ -340,7 +340,7 @@ We need to bind our reference stoleSecretIdentity with the hero object so when w
 		}
 	}
 	
-####24. Testing your this knowledge in JavaScript: What is the output of the following code?
+#### 24. Testing your this knowledge in JavaScript: What is the output of the following code?
 
 	var length = 10;
 	
@@ -362,7 +362,7 @@ Output logs 10 first (for the globally scoped `var length = 10;`). fn() is calle
 
 The second output 2 is the result of accessing the arguments object for the parameters passed into method. `arguments[0]();` is calling the first argument `fn()` and because the arguments object is calling the function, `fn()` is scoped to the arguments object in this context. The `this.length` becomes the length of the arguments object which is 2 in this context.
 
-####25. Consider the following code. What will the output be, and why?
+#### 25. Consider the following code. What will the output be, and why?
 	(function () {
     	try {
         	throw new Error();
@@ -380,7 +380,7 @@ Outside of the catch block, the outer x variable is never initilized a value so 
 
 There is only 1 y variable globally scoped to the function so 2 is logged in the third output.
 
-####26. What will be the output of this code?
+#### 26. What will be the output of this code?
 
 	var x = 21;
 	
@@ -395,7 +395,7 @@ The output is undefined because JavaScript does not hoist initialization. The re
 
 If `var x = 20;` was removed from the code, JavaScript would look in the local scope for x, then look globally and output 21.
 
-####27. What will this code print?
+#### 27. What will this code print?
 
 	for (let i = 0; i < 5; i++) {
   		setTimeout(function() { console.log(i); }, i * 1000 );
@@ -405,7 +405,7 @@ The event loop will add each settimeout call and remove from the loop based on t
 
 `i` is locally scoped to the for loop block so the settimeout callback can access the current value of `i` on each iteration.
 
-####28. What do the following lines output, and why?
+#### 28. What do the following lines output, and why?
 
 	console.log(1 < 2 < 3);
 	console.log(3 > 2 > 1);
@@ -415,7 +415,7 @@ JavaScript evaluate < > operands from left to right and remembers the previous v
 The first output is true because `1 < 2 is 1 and 1 < 3 is 1` which results in true.
 The second output is false because `3 > 2 is 1 and 1 > 1 is 0` which results in the whole expression false.
 
-####29. How do you add an element at the begining of an array? How do you add one at the end?
+#### 29. How do you add an element at the begining of an array? How do you add one at the end?
 
 Using built in JavaSript Array methods, you can add an element to the beginning of an array with `Array.unshift()`, and add an element to the end of the array with `Array.push()`.
 
@@ -430,7 +430,7 @@ end
 or both
 `let elements = [newElement1, ...elements, newElement2];`
 
-####30. Imagine you have this code:
+#### 30. Imagine you have this code:
 	var a = [1, 2, 3];
 	
 #### (a) Will this result in a crash?
@@ -445,17 +445,17 @@ Undefined. The slot is technically empty (it is not filled with anything). This 
 
 This behavior is kind of like more traditional Arrays where the container size must be defined (it cannot change) so when initilized all containers are empty until values are placed in them.
 
-####31. What is the value of `typeof undefined == typeof NULL`?
+#### 31. What is the value of `typeof undefined == typeof NULL`?
 
 The expression is true because the variable `NULL` is undefined. JavaScript is case sensitive so `typeof undefined == typeof null` would be false because null is an object in JavaScript.
 
-####32. What would following code return?
+#### 32. What would following code return?
 
 	console.log(typeof typeof 1);
 
 Elements are evaluated right to left against the type. typeof 1 returns "number" and then typeof "number" returns "string".
 
-####33. What will be the output of the following code:
+#### 33. What will be the output of the following code:
 
 	for (var i = 0; i < 5; i++) {
 		setTimeout(function() { console.log(i); }, i * 1000 );
@@ -463,7 +463,7 @@ Elements are evaluated right to left against the type. typeof 1 returns "number"
 
 The output of this code will be 5,5,5,5,5, Because var i is globally scoped and we are waiting for the callbacks of settimeout to execute from the event loop, by the time the loop finishes the value of i is now 5.
 
-####Explain your answer. How could the use of closures help here?
+#### Explain your answer. How could the use of closures help here?
 
 Closure can be used to pass the value of `i` to an inner function where `i` will be correctly scoped to the current value of `i` for that execution:
 
@@ -475,14 +475,14 @@ Closure can be used to pass the value of `i` to an inner function where `i` will
 		
 Or the declaration `var` can be replaced with `let` to scope i to the code block and not globally.
 
-####34. What is NaN? What is its type? How can you reliably test if a value is equal to NaN?
+#### 34. What is NaN? What is its type? How can you reliably test if a value is equal to NaN?
 
 NaN is a global JavaScript property that represents a value that is "not a number". This
 value results from operation results that are not numeric, or the inability to perform numeric operations on the value.
 
 A variable can be passed into Number.isNaN() but coersion can still happen with this method ("4" coerces to 4). A better solution is to check if the resulting value of an operation is NaN.
 
-####35. What will the following code output and why?
+#### 35. What will the following code output and why?
 
 	var b = 1;
 	function outer(){
@@ -498,7 +498,7 @@ A variable can be passed into Number.isNaN() but coersion can still happen with 
 	
 Outer function is called, then the inner() function is called inside the outer() function. The inner function will look for a locally scoped variable first which is `var b = 3;` and so 3 is output to the console.
 
-####36. Discuss possible ways to write a function isInteger(x) that determines if x is an integer.
+#### 36. Discuss possible ways to write a function isInteger(x) that determines if x is an integer.
 
 You can pass x into Number.isInteger() and return true if it is an integer.
 
@@ -517,7 +517,7 @@ The most accepted approach is to use a bitwise XOR operand comparing to 0:
 		return (x ^ 0) === x;
 	}
 	
-####37. How do you clone an object?
+#### 37. How do you clone an object?
 
 A slow way to clone an Object is to iterate over the object entries, adding all key value pairs to a new object. The benefit of this approach is you can check for nested objects and add those to the new object as well (a deep copy).
 
